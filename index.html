@@ -7,12 +7,54 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- FONT AWESOME CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        div#main{
+            margin-top: 60px;
+        }
+    </style>
 </head>
 <body>
 
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">GR1D99 Vue</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+        </div>
+    </div>
+</div>
+
 <div class="container">
-    <div id="app">
-        {{ message }}
+    <div id="main">
+        <div id="app">
+            {{ message }}
+        </div>
+        <hr/>
+        <div id="app2">
+            <span v-bind:title="message">
+                hover your mouse for a few seconds to see dynamically bound title
+            </span>
+        </div>
+        <hr/>
+        <div id="app3">
+            <span v-if="seen">
+                Now you see me
+            </span>
+        </div>
+        <hr/>
+        <div id="app4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
     </div>
 </div>
 
@@ -21,14 +63,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="assets/js/vue.js"></script>
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: "hello ya'll this is vue"
-        }
-    })
-</script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
