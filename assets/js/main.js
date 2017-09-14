@@ -29,15 +29,41 @@ var app4 = new Vue({
             {'text': 'Hello there'},
             {'text': 'Vue is just awesome'},
             {'text': 'Lets build some awesome stuff'}
-        ],
-        addItem: function (item) {
-            return app4.todos.push({
-                'text': item
-            })
-        },
-        removeItem: function () {
-            return app4.todos.pop()
+        ]
+    }
+});
+
+var app5 = new Vue({
+    el: '#app5',
+    data: {
+        message: 'Hello Vue world'
+    },
+    methods: {
+        reverseMessage: function () {
+            this.message = this.message.split('').reverse().join('')
         }
     }
 });
 
+var app6 = new Vue({
+   el: '#app6',
+    data: {
+       message: 'Change me dynamically'
+    }
+});
+
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+});
+
+var app7 = new Vue({
+   el: '#app7',
+    data: {
+       groceryList: [
+           {id: 0, text: 'Vegetables'},
+           {id: 1, text: 'Cheese'},
+           {id: 2, text: 'Whatever else humans are supposed to eat'}
+       ]
+    }
+});

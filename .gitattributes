@@ -1,1 +1,2 @@
-assets/js/vue.js linguist-vendored
+assets/js/* linguist-vendored
+main.js linguist-vendored=false

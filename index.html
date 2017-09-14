@@ -32,29 +32,71 @@
 
 <div class="container">
     <div id="main">
-        <div id="app">
-            {{ message }}
+        <div class="jumbotron">
+
+            <div id="app" class="">
+                <h3 class="">Declarative Rendering</h3>
+                {{ message }}
+            </div>
+
+            <hr/>
+
+            <div id="app2">
+                <span v-bind:title="message">
+                    hover your mouse for a few seconds to see dynamically bound title
+                </span>
+            </div>
+            <hr/>
+
         </div>
-        <hr/>
-        <div id="app2">
-            <span v-bind:title="message">
-                hover your mouse for a few seconds to see dynamically bound title
-            </span>
+        <div class="jumbotron">
+            <h3>Conditionals and Loops</h3>
+            <div id="app3">
+                <span v-if="seen">
+                    Now you see me
+                </span>
+            </div>
+            <hr/>
+            <div id="app4">
+                <ol>
+                    <li v-for="todo in todos">
+                        {{ todo.text }}
+                    </li>
+                </ol>
+            </div>
+            <hr/>
         </div>
-        <hr/>
-        <div id="app3">
-            <span v-if="seen">
-                Now you see me
-            </span>
+        <div class="jumbotron">
+            <h3>Handling User Input</h3>
+            <div id="app5">
+                {{ message }}
+                <br>
+                <button v-on:click="reverseMessage">
+                    Reverse Message
+                </button>
+            </div>
+            <hr/>
+
+            <div id="app6">
+                {{ message }}
+                <input v-model="message"/>
+            </div>
         </div>
-        <hr/>
-        <div id="app4">
-            <ol>
-                <li v-for="todo in todos">
-                    {{ todo.text }}
-                </li>
-            </ol>
+
+        <div class="jumbotron">
+            <h3>Composing with Components</h3>
+            <div id="app7">
+                <ol>
+                    <todo-item
+                            v-for="item in groceryList"
+                            v-bind:todo="item"
+                            v-bind:key="item.id">
+                    </todo-item>
+                </ol>
+            </div>
         </div>
+
+
     </div>
 </div>
 
